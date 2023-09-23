@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+<style>
+    /* login page  */
+
+    .box {
+        position: relative;
+        width: 380px;
+        height: 420px;
+        background: #1c1c1c;
+        top: 150px;
+        border-radius: 8px;
+        margin-left: 38vw;
+
+
+        /* for animation */
+        overflow: hidden;
+
+    }
+
+    .box::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 480px;
+        height: 420px;
+        background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
+        z-index: 1;
+        transform-origin: bottom right;
+        animation: animate 6s linear infinite;
+
+    }
+
+    .box::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 380px;
+        height: 420px;
+        background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
+        z-index: 1;
+        transform-origin: bottom right;
+        animation: animate 6s linear infinite;
+        animation-delay: -3s;
+    }
+
+    .borderline {
+        position: absolute;
+        top: 0;
+        inset: 0;
+
+    }
+
+    .borderline::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 380px;
+        height: 420px;
+        background: linear-gradient(0deg, transparent, transparent, red, red, red);
+        z-index: 1;
+        transform-origin: bottom right;
+        animation: animate 6s linear infinite;
+        animation-delay: -1.5s;
+    }
+
+    .borderline::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 380px;
+        height: 420px;
+        background: linear-gradient(0deg, transparent, transparent, red, red, red);
+        z-index: 1;
+        transform-origin: bottom right;
+        animation: animate 6s linear infinite;
+        animation-delay: -4.5s;
+    }
+
+
+    @keyframes animate {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+
+    /* animation ends */
+
+
+    .box .form {
+        position: absolute;
+
+        inset: 4px;
+        /* background: #222; */
+        background: #000;
+
+        padding: 50px 40px;
+        border-radius: 8px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .box .form h2 {
+        color: #fff;
+        font-weight: 500;
+        text-align: center;
+        letter-spacing: 0.1rem;
+    }
+
+    .box .form .inputbox {
+        position: relative;
+        width: 300px;
+        margin-top: 35px;
+    }
+
+    .box .form .inputbox input {
+        position: relative;
+        width: 100%;
+        padding: 20px 10px 10px;
+        background: transparent;
+        outline: none;
+        border: none;
+        box-shadow: none;
+        color: #000;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        transition: 0.5s;
+        z-index: 10;
+
+    }
+
+    .box .form .inputbox span {
+        position: absolute;
+        top: 0px;
+        left: 0;
+        padding: 20px 0px 10px;
+        pointer-events: none;
+        /* color: #8f8f8f; */
+        color: #fff;
+        font-size: 1em;
+        letter-spacing: 0.05em;
+        transition: 0.5s;
+
+    }
+
+    .box .form .inputbox input:valid~span,
+    .box .form .inputbox input:focus~span {
+        color: #fff;
+        font-size: 0.75em;
+        transform: translateY(-34px);
+    }
+
+    .box .form .inputbox i {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        color: #000;
+        border-radius: 4px;
+        overflow: hidden;
+        transition: 0.5s;
+        pointer-events: none;
+
+    }
+
+    .box .form .inputbox input:valid~i,
+    .box .form .inputbox input:focus~i {
+        height: 44px;
+
+    }
+
+    .box .form input[type=submit] {
+        position: relative;
+        top: 20px;
+        left: 90px;
+        border: none;
+        outline: none;
+        padding: 9px 25px;
+        background: #fff;
+        color: #000;
+        cursor: pointer;
+        font-size: 0.9em;
+        border-radius: 4px;
+        font-weight: 600;
+        width: 100px;
+        margin-top: 10px;
+    }
+
+    .box .form input[type=submit]:active {
+        border: 2px solid white;
+        background: #000;
+        color: #fff;
+        opacity: 0.8;
+    }
+
+    .box .form input[type=submit]:hover {
+        border: 2px solid white;
+        background: #000;
+        color: #fff;
+        transition: 1s;
+        opacity: 0.8;
+    }
+</style>
+
+<body style="background-color: #000;">
+
+    <div class="box">
+        <span class="borderline"></span>
+        <div class="form" action="">
+            <h2>Admin Login</h2>
+            <div class="inputbox">
+                <input type="text" id="email" required="required">
+                <span>Username</span>
+                <i></i>
+            </div>
+            <div class="inputbox">
+                <input type="Text" id="password" required="required">
+                <span>Password</span>
+                <i></i>
+            </div>
+
+            <input type="submit" id="insertCourse" value="Login">
+
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    
+</script>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+    import { getFirestore, setDoc, collection, addDoc, getDocs, deleteDoc, doc, query, where } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+    // import { doc, setDoc } from "firebase/firestore";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyAykzLbpWz0eu1aZY-InIJmFAlGPG-Uduo",
+        authDomain: "uthinkcrazy-def5b.firebaseapp.com",
+        databaseURL: "https://uthinkcrazy-def5b-default-rtdb.firebaseio.com",
+        projectId: "uthinkcrazy-def5b",
+        storageBucket: "uthinkcrazy-def5b.appspot.com",
+        messagingSenderId: "1003988614348",
+        appId: "1:1003988614348:web:f3dae19a539487cbbf9669",
+        measurementId: "G-MB9FCXW264"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore(app);
+
+
+    var email;
+    var password;
+
+    function readFom() {
+        email = document.getElementById("email").value;
+        password = document.getElementById("password").value;
+
+    }
+
+
+    var courseDeleteId;
+    var documentId;
+
+    document.getElementById("insertCourse").onclick = function () {
+        readFom();
+
+        var s = query(collection(db, "AdminUsers"), where("email", "==", email));
+
+        var querySnapshot = getDocs(s).then(
+            querySnapshot => {
+                querySnapshot.forEach((docs) => {
+                    const data1 = docs.data();
+                    // deleteDoc(doc(db, "unit", docs.id));
+                    if (email == data1.email && password == data1.password) {
+                        console.log(data1.password);
+                        sessionStorage.setItem("role",data1.roleId);
+                        sessionStorage.setItem("isLogin","true");
+                        window.location.href = 'dashboard.html';
+                    }else{
+                        alert("Invalid Email or Password...")
+                    }
+                    
+                });
+            }
+        );
+
+        // Add a new document in collection "cities"
+        // addDoc(collection(db, "course"), {
+        //     courseName: courseName,
+        //     cid: courseName,
+        // });
+        // alert("Data Inserted");
+        // document.getElementById("courseName").value = "";
+
+    };
+
+
+
+
+
+
+
+
+
+</script>
+
+<!-- <script src="myscript.js"></script> -->
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+
+</html>

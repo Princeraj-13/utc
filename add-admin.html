@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTC | Admin</title>
+    <!-- style.css  -->
+    <link rel="stylesheet" href="style.css">
+    <!-- boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="container">
+        <div class="navigation">
+            <div class="main-utc">
+                <div class="utc">
+                    <a href="">
+                        <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
+                        <span class="title">U-ThinkCrazy</span>
+                    </a>
+                    <hr>
+                </div>
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="dashboard.html">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li id="addAdmin">
+                    <a href="add-admin.html">
+                        <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
+                        <span class="title">Add Admin</span>
+                    </a>
+                </li>
+
+                <li id="adminUser">
+                    <a href="admin-user.html">
+                        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                        <span class="title">Admin User</span>
+                    </a>
+                </li>
+
+                <li id="utcUsers">
+                    <a href="utc-user.html">
+                        <span class="icon"><ion-icon name="man-outline"></ion-icon></span>
+                        <span class="title">UTC User</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="course.html">
+                        <span class="icon"><ion-icon name="book-outline"></ion-icon></span>
+                        <span class="title">Courses</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="subject.html">
+                        <span class="icon"><ion-icon name="albums-outline"></ion-icon></span>
+                        <span class="title">Subject</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="unit.html">
+                        <span class="icon"><ion-icon name="document-outline"></ion-icon></span>
+                        <span class="title">Unit</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="chapter.html">
+                        <span class="icon"><ion-icon name="layers-outline"></ion-icon></span>
+                        <span class="title">Chapter</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="add-question.html">
+                        <span class="icon"><ion-icon name="add-circle-outline"></ion-icon></span>
+                        <span class="title">Add Questions</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mcq.html">
+                        <span class="icon"><ion-icon name="document-outline"></ion-icon></span>
+                        <span class="title"> Mcq</span>
+                    </a>
+                </li>
+                <li id="signOut">
+                    <a  >
+                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+
+                <li>
+                    <hr>
+                    <a href="#">
+                        <span class="company">@Designed By: PR Software</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle"><ion-icon name="menu-outline"></ion-icon></div>
+
+        </div>
+
+
+
+        <div class="bodycontainer">
+            <div class="header-section">
+                <h2 class="header-title">ADD ADMIN USER</h2>
+            </div>
+            <div class="add-user-container">
+                <div>
+
+                    <div class="user-image">
+                        <div class="user-info">
+                            <input class="fullname" id="fullName" type="text" name="adminfullname"
+                                placeholder="Full Name" required>
+                            <input class="email" id="email" type="email" name="adminmail" placeholder="Email" required>
+                            <input class="password" id="password" type="text" name="adminpassword"
+                                placeholder="Password" required>
+                            <input class="number" id="number" type="phone" name="adminnumber" placeholder="Mobile No.">
+                            <select style="width: 96%;" class="select" id="roleSelect">
+                                <!-- <option>Select Roles</option> -->
+                                <option value="Adminstrator">Adminstrator</option>
+                                <option value="Editor">Editor</option>
+
+                            </select>
+                            <div class="btn">
+                                <button class="add-user-btn" id="addUser" type="submit">ADD USER</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        if (sessionStorage.getItem("isLogin") == "true") {
+            sessionStorage.setItem("alreadyLogin", "true");
+            console.log(sessionStorage.getItem("alreadyLogin"));
+            
+        }
+        else {
+            // Replace 'https://example.com/new-page' with the URL you want to navigate to.
+            window.location.href = 'index.html';
+
+        }
+
+        if (sessionStorage.getItem("role") == "Editor") {
+            var addAdmin = document.getElementById("addAdmin");
+            var adminUser = document.getElementById("adminUser");
+            var utcUsers = document.getElementById("utcUsers");
+
+            addAdmin.style.display = "none";
+            adminUser.style.display = "none";
+            utcUsers.style.display = "none";
+            
+        } else {
+            
+        }
+
+        document.getElementById("signOut").onclick = function () {
+            sessionStorage.removeItem("role");
+            sessionStorage.removeItem("isLogin");
+            sessionStorage.removeItem("alreadyLogin");
+            window.location.href = 'index.html';
+        }
+    </script>
+    <script type="text/javascript">
+        const currentLocation = location.href;
+        const menuItem = document.querySelectorAll('a');
+        const menuLength = menuItem.length
+        for (let i = 0; i < menuLength; i++) {
+            if (menuItem[i].href === currentLocation) {
+                menuItem[i].className = "active"
+            }
+        }
+    </script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+        import { getFirestore, setDoc, collection, addDoc, getDocs, deleteDoc, doc, query, where } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+        // import { doc, setDoc } from "firebase/firestore";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyAykzLbpWz0eu1aZY-InIJmFAlGPG-Uduo",
+            authDomain: "uthinkcrazy-def5b.firebaseapp.com",
+            databaseURL: "https://uthinkcrazy-def5b-default-rtdb.firebaseio.com",
+            projectId: "uthinkcrazy-def5b",
+            storageBucket: "uthinkcrazy-def5b.appspot.com",
+            messagingSenderId: "1003988614348",
+            appId: "1:1003988614348:web:f3dae19a539487cbbf9669",
+            measurementId: "G-MB9FCXW264"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+
+        var fullName;
+        var email;
+        var password;
+        var number;
+        var roleId;
+
+        function readFom() {
+            fullName = document.getElementById("fullName").value;
+            email = document.getElementById("email").value;
+            password = document.getElementById("password").value;
+            number = document.getElementById("number").value;
+
+
+
+
+
+            var x = document.getElementById("roleSelect");
+            var value = x.options[x.selectedIndex].text;
+            roleId = value;
+
+
+        }
+
+
+        document.getElementById("addUser").onclick = function () {
+            readFom();
+
+            if (fullName == "" || email == "" || password == "" || number == "" || roleId == "") {
+                alert("All Fields are required....!");
+            }else{
+                const auth = getAuth();
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    addDoc(collection(db, "AdminUsers",), {
+                        fullName : fullName,
+                        email : email,
+                        password : password,
+                        number : number,
+                        roleId : roleId,
+
+                    });
+                    console.log("added user");
+                    document.getElementById("fullName").value = "";
+                    document.getElementById("email").value = "";
+                    document.getElementById("password").value = "";
+                    document.getElementById("number").value = "";
+                    alert("User Added..");
+                    // window.location.href = 'admin-user.html';
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert("User already exist..");
+                    // ..
+                });
+            }
+
+            
+
+
+
+
+        }
+
+
+
+    </script>
+
+    <!-- <script src="myscript.js"></script> -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTC | Admin</title>
+
+    <!-- style.css  -->
+    <link rel="stylesheet" href="style.css">
+    <!-- boxicons -->
+
+    <style>
+        #img-preview {
+
+            /* display: none; */
+            width: 155px;
+            border: 0.5rem solid #333;
+            margin-bottom: 20px;
+            width: 20vw;
+            height: 30vh;
+            margin-left: 2rem;
+            background-color: white;
+        }
+
+        #img-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        [type="file"] {
+            height: 0;
+            width: 0;
+            overflow: hidden;
+        }
+
+        [type="file"]+label {
+            font-family: sans-serif;
+            background: #f44336;
+            padding: 10px 30px;
+            border: 2px solid #f44336;
+            border-radius: 3px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        [type="file"]+label:hover {
+            background-color: #fff;
+            color: #f44336;
+        }
+    </style>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+
+</head>
+
+<body>
+    <!-- navbar -->
+
+    <div class="container">
+        <div class="navigation">
+            <div class="main-utc">
+                <div class="utc">
+                    <a href="">
+                        <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
+                        <span class="title">U-ThinkCrazy</span>
+                    </a>
+                    <hr>
+                </div>
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="dashboard.html">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li id="addAdmin">
+                    <a href="add-admin.html">
+                        <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
+                        <span class="title">Add Admin</span>
+                    </a>
+                </li>
+
+                <li id="adminUser">
+                    <a href="admin-user.html">
+                        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                        <span class="title">Admin User</span>
+                    </a>
+                </li>
+
+                <li id="utcUsers">
+                    <a href="utc-user.html">
+                        <span class="icon"><ion-icon name="man-outline"></ion-icon></span>
+                        <span class="title">UTC User</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="course.html">
+                        <span class="icon"><ion-icon name="book-outline"></ion-icon></span>
+                        <span class="title">Courses</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="subject.html">
+                        <span class="icon"><ion-icon name="albums-outline"></ion-icon></span>
+                        <span class="title">Subject</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="unit.html">
+                        <span class="icon"><ion-icon name="document-outline"></ion-icon></span>
+                        <span class="title">Unit</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="chapter.html">
+                        <span class="icon"><ion-icon name="layers-outline"></ion-icon></span>
+                        <span class="title">Chapter</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="add-question.html">
+                        <span class="icon"><ion-icon name="add-circle-outline"></ion-icon></span>
+                        <span class="title">Add Questions</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mcq.html">
+                        <span class="icon"><ion-icon name="document-outline"></ion-icon></span>
+                        <span class="title"> Mcq</span>
+                    </a>
+                </li>
+
+                <li id="signOut">
+                    <a  >
+                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+
+                <li>
+                    <hr>
+                    <a href="#">
+                        <span class="company">@Designed By: PR Software</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle"><ion-icon name="menu-outline"></ion-icon></div>
+
+        </div>
+
+        <!-- code here for body section  -->
+
+        <div class="bodycontainer">
+            <div class="header-section">
+                <h2 class="header-title">ADD MCQ QUESTION</h2>
+            </div>
+            <div class="add-user-container">
+                <div>
+
+                    <div class="user-images">
+                        <div class="user-info">
+                            <div style="display: flex;">
+                                <div>
+
+                                    <!-- id  -->
+
+
+                                    <textarea class="fullname" id="question" type="text" name="adminfullname"
+                                        placeholder="Enter Question Here..." required></textarea>
+                                    <div style="display: flex;">
+                                        <input style="width: 25vw;" class="email" id="option1" type="text"
+                                            name="adminmail" placeholder="Enter Option 1" required>
+                                        <input style="width: 23vw;" class="email" id="option2" type="text"
+                                            name="adminmail" placeholder="Enter Option 2" required>
+
+                                    </div>
+                                    <div style="display: flex;">
+                                        <input style="width: 25vw;" class="email" id="option3" type="text"
+                                            name="adminmail" placeholder="Enter Option 3" required>
+                                        <input style="width: 23vw;" class="email" id="option4" type="text"
+                                            name="adminmail" placeholder="Enter Option 4" required>
+
+                                    </div>
+                                    <input class="email" id="rightAns" type="text" name="adminmail"
+                                        placeholder="Enter Correct Answer" required>
+
+                                </div>
+                                <div style="text-align: center; margin-top: 1rem;">
+                                    <div id="img-preview"></div>
+                                    <input type="file" id="choose-file" name="choose-file" accept="image/*" />
+                                    <label for="choose-file">Choose File</label>
+                                </div>
+
+                            </div>
+
+
+
+                            <select style="width: 240px;" class="select" id="courseSelect">
+                                <option>Select course</option>
+
+
+                            </select>
+
+                            <select style="width: 240px;" class="select" id="subjectSelect">
+                                <option>Select Subject</option>
+
+
+                            </select>
+                            <select style="width: 240px;" class="select" id="unitSelect">
+                                <option>Select Unit</option>
+
+
+                            </select>
+                            <select style="width: 240px;" class="select" id="chapterSelect">
+                                <option>Select Chapter</option>
+
+
+                            </select>
+
+                            <div class="btn">
+                                <button class="add-user-btn" id="insertQuestion" type="submit">ADD QUESTION</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- add btn popup -->
+
+    <!-- active sidebar hover -->
+
+
+    <script>
+
+        if (sessionStorage.getItem("isLogin") == "true") {
+            sessionStorage.setItem("alreadyLogin", "true");
+            console.log(sessionStorage.getItem("alreadyLogin"));
+            
+        }
+        else {
+            // Replace 'https://example.com/new-page' with the URL you want to navigate to.
+            window.location.href = 'index.html';
+
+        }
+
+        if (sessionStorage.getItem("role") == "Editor") {
+            var addAdmin = document.getElementById("addAdmin");
+            var adminUser = document.getElementById("adminUser");
+            var utcUsers = document.getElementById("utcUsers");
+
+            addAdmin.style.display = "none";
+            adminUser.style.display = "none";
+            utcUsers.style.display = "none";
+            
+        } else {
+            
+        }
+
+        document.getElementById("signOut").onclick = function () {
+            sessionStorage.removeItem("role");
+            sessionStorage.removeItem("isLogin");
+            sessionStorage.removeItem("alreadyLogin");
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <script type="text/javascript">
+        const currentLocation = location.href;
+        const menuItem = document.querySelectorAll('a');
+        const menuLength = menuItem.length
+        for (let i = 0; i < menuLength; i++) {
+            if (menuItem[i].href === currentLocation) {
+                menuItem[i].className = "active"
+            }
+        }
+    </script>
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getStorage, ref as sRef, uploadBytes, getDownloadURL, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+        import { getFirestore, setDoc, collection, addDoc, getDocs, query, where, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+        // import { doc, setDoc } from "firebase/firestore";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyAykzLbpWz0eu1aZY-InIJmFAlGPG-Uduo",
+            authDomain: "uthinkcrazy-def5b.firebaseapp.com",
+            databaseURL: "https://uthinkcrazy-def5b-default-rtdb.firebaseio.com",
+            projectId: "uthinkcrazy-def5b",
+            storageBucket: "uthinkcrazy-def5b.appspot.com",
+            messagingSenderId: "1003988614348",
+            appId: "1:1003988614348:web:f3dae19a539487cbbf9669",
+            measurementId: "G-MB9FCXW264"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+
+        var courseID = "";
+        var subjectID = "";
+        var unitId = "";
+        var chapterUId = "";
+        var q;
+
+
+
+        document.getElementById("courseSelect").onclick = function () {
+
+            var x = document.getElementById("courseSelect");
+            var value = x.options[x.selectedIndex].text;
+            courseID = value;
+
+
+            const subjectSelect = document.querySelector("#subjectSelect");
+            q = query(collection(db, "subject"), where("cid", "==", courseID != "" ? courseID : "IOE"));
+
+
+            subjectSelect.innerHTML = "";
+            const row3 = document.createElement("option");
+            row3.innerHTML = `
+        <option value="">Select Subject</option>
+            
+        `;
+            subjectSelect.appendChild(row3);
+
+            var querySnapshot = getDocs(q).then(
+                querySnapshot => {
+                    querySnapshot.forEach((doc) => {
+                        // doc.data() is never undefined for query doc snapshots
+                        const data2 = doc.data();
+                        const row2 = document.createElement("option");
+
+
+                        row2.innerHTML = `
+        
+    
+        <option value="${data2.subjectName}">${data2.subjectName}</option>
+            
+        `;
+                        subjectSelect.appendChild(row2);
+
+                        console.log(doc.id, " => ", doc.data());
+                    });
+                }
+            );
+
+
+        }
+
+
+        document.getElementById("subjectSelect").onclick = function () {
+            var y = document.getElementById("subjectSelect");
+            var value2 = y.options[y.selectedIndex].text;
+            subjectID = value2;
+
+            const subjectSelect = document.querySelector("#unitSelect");
+            q = query(collection(db, "unit"), where("cid", "==", courseID != "" ? courseID : ""));
+
+
+            subjectSelect.innerHTML = "";
+            const row3 = document.createElement("option");
+            row3.innerHTML = `
+        <option value="">Select Unit</option>
+            
+        `;
+            subjectSelect.appendChild(row3);
+
+            var querySnapshot = getDocs(q).then(
+                querySnapshot => {
+                    querySnapshot.forEach((doc) => {
+                        // doc.data() is never undefined for query doc snapshots
+                        const data2 = doc.data();
+                        const row2 = document.createElement("option");
+
+
+                        row2.innerHTML = `
+        
+    
+        <option value="${data2.unittName}">${data2.unitName}</option>
+            
+        `;
+                        subjectSelect.appendChild(row2);
+
+                        console.log(doc.id, " => ", doc.data());
+                    });
+                }
+            );
+
+
+        }
+
+        document.getElementById("unitSelect").onclick = function () {
+            var y = document.getElementById("unitSelect");
+            var value2 = y.options[y.selectedIndex].text;
+            unitId = value2;
+
+            const subjectSelect = document.querySelector("#chapterSelect");
+            q = query(collection(db, "chapter"), where("cid", "==", courseID != "" ? courseID : ""));
+
+
+            subjectSelect.innerHTML = "";
+            const row3 = document.createElement("option");
+            row3.innerHTML = `
+        <option value="">Select Chapters</option>
+            
+        `;
+            subjectSelect.appendChild(row3);
+
+            var querySnapshot = getDocs(q).then(
+                querySnapshot => {
+                    querySnapshot.forEach((doc) => {
+                        // doc.data() is never undefined for query doc snapshots
+                        const data2 = doc.data();
+                        const row2 = document.createElement("option");
+
+
+                        row2.innerHTML = `
+        
+    
+        <option value="${data2.chapterName}">${data2.chapterName}</option>
+            
+        `;
+                        subjectSelect.appendChild(row2);
+
+                        console.log(doc.id, " => ", doc.data());
+                    });
+                }
+            );
+        }
+
+        document.getElementById("chapterSelect").onclick = function () {
+            var y = document.getElementById("chapterSelect");
+            var value2 = y.options[y.selectedIndex].text;
+            chapterUId = value2;
+        }
+
+
+
+
+        // add course name to the selector
+        const courseSelect = document.querySelector("#courseSelect");
+
+        const querySnapshot1 = await getDocs(collection(db, "course"));
+        querySnapshot1.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+
+            const data = doc.data();
+            const row1 = document.createElement("option");
+
+            row1.innerHTML = `
+        
+            
+<option value="${data.courseName}">${data.courseName}</option>
+            
+        `;
+            courseSelect.appendChild(row1);
+
+            // console.log(doc.id, " => ", doc.data());
+
+        });
+
+
+        var question;
+        var option1;
+        var option2;
+        var option3;
+        var option4;
+        var rightAns;
+
+        // var courseDeleteId;
+        // var documentId;
+
+
+        function readFom() {
+            question = document.getElementById("question").value;
+            option1 = document.getElementById("option1").value;
+            option2 = document.getElementById("option2").value;
+            option3 = document.getElementById("option3").value;
+            option4 = document.getElementById("option4").value;
+            rightAns = document.getElementById("rightAns").value;
+
+
+
+        }
+        var files;
+
+
+        const chooseFile = document.getElementById("choose-file");
+        const imgPreview = document.getElementById("img-preview");
+
+        chooseFile.addEventListener("change", function () {
+            getImgData();
+        });
+
+        var extension;
+        var filename;
+
+        function getImgData() {
+            files = chooseFile.files[0];
+            extension = GetFileExt(files);
+            filename = GetFileName(files);
+            if (files) {
+                const fileReader = new FileReader();
+                fileReader.readAsDataURL(files);
+                fileReader.addEventListener("load", function () {
+                    imgPreview.style.display = "block";
+                    imgPreview.innerHTML = '<img src="' + this.result + '" />';
+                });
+            }
+        }
+
+        function GetFileExt(file) {
+            var temp = file.name.split('.');
+            var ext = temp.slice((temp.length - 1), (temp.length));
+            return '.' + ext[0];
+        }
+
+        function GetFileName(file) {
+            var temp = file.name.split('.');
+            var fname = temp.slice(0, -1).join('.');
+            return fname;
+        }
+
+        var Url;
+
+        async function UploadProcess() {
+            var ImgtoUpload = files;
+
+            var ImgName = filename + extension;
+
+
+            const storage = getStorage();
+            const storageRef = sRef(storage, 'images/' + ImgName);
+
+            const uploadTask = uploadBytesResumable(storageRef, files);
+
+
+
+            uploadTask.on('state_changed',
+                (snapshot) => {
+                    // Observe state change events such as progress, pause, and resume
+                    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log('Upload is ' + progress + '% done');
+                    switch (snapshot.state) {
+                        case 'paused':
+                            console.log('Upload is paused');
+                            break;
+                        case 'running':
+                            console.log('Upload is running');
+                            break;
+                    }
+                },
+                (error) => {
+                    // Handle unsuccessful uploads
+                },
+                () => {
+                    // Handle successful uploads on complete
+                    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                    getDownloadURL(uploadTask.snapshot.ref)
+                        .then((downloadURL) => {
+                            Url = downloadURL;
+                            console.log(Url);
+
+                            // Add the Firestore document inside this block
+                            addDoc(collection(db, "ImageLink"), {
+                                ImageName: filename + extension,
+                                ImageUrl: Url,
+                                ImageID: filename,
+                            })
+                                .then(() => {
+                                    // alert("Data Inserted");
+                                })
+                                .catch((error) => {
+                                    console.error("Error adding document: ", error);
+                                });
+                        })
+                        .catch((error) => {
+                            // Handle any errors with getting the download URL
+                            console.error("Error getting download URL: ", error);
+                        });
+                }
+            );
+
+
+
+        }
+
+
+        document.getElementById("insertQuestion").onclick = function () {
+            readFom();
+            if (question == "" || option1 == "" || option2 == "" || option3 == "" || option4 == "" || rightAns == "") {
+                alert("All fields are required...");
+            }
+            else {
+                UploadProcess();
+                if (UploadProcess) {
+                    addDoc(collection(db, "MCQs",), {
+                        questionName: question,
+                        option1: option1,
+                        option2: option2,
+                        option3: option3,
+                        option4: option4,
+                        rightAns: rightAns,
+                        unitId: unitId,
+                        chapterId: chapterUId,
+                        sid: subjectID,
+                        cid: courseID,
+                        ImageName: filename + extension,
+                    });
+                    alert("Question Added...");
+                    document.getElementById("question").value = "";
+                    document.getElementById("option1").value = "";
+                    document.getElementById("option2").value = "";
+                    document.getElementById("option3").value = "";
+                    document.getElementById("option4").value = "";
+                    document.getElementById("rightAns").value = "";
+                }
+            }
+
+
+            // Add a new document in collection "cities"
+
+
+        };
+
+
+    </script>
+
+
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+    <script src="main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
