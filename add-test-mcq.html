@@ -180,7 +180,7 @@
 
         <div class="bodycontainer">
             <div class="header-section">
-                <h2 class="header-title">ADD MCQ QUESTION</h2>
+                <h2 class="header-title">ADD TEST MCQ QUESTION</h2>
             </div>
             <div class="add-user-container">
                 <div>
@@ -221,6 +221,8 @@
                                     </div>
                                     <input class="email" id="rightAns" type="text" name="adminmail"
                                         placeholder="Enter Correct Answer" required>
+                                    <input class="email" id="marks" type="text" name="adminmail"
+                                        placeholder="Enter marks" required>
 
                                 </div>
                                 <div style="text-align: center; margin-top: 5%;">
@@ -244,16 +246,8 @@
 
 
                             </select>
-                            <select style="width: 240px;" class="select" id="unitSelect">
-                                <option>Select Unit</option>
-
-
-                            </select>
-                            <select style="width: 240px;" class="select" id="chapterSelect">
-                                <option>Select Chapter</option>
-
-
-                            </select>
+                           
+                           
 
                             <div class="btn">
                                 <button class="add-user-btn" id="insertQuestion" type="submit">ADD QUESTION</button>
@@ -406,86 +400,12 @@
             var value2 = y.options[y.selectedIndex].text;
             subjectID = value2;
 
-            const subjectSelect = document.querySelector("#unitSelect");
-            q = query(collection(db, "unit"), where("sid", "==", subjectID != "" ? subjectID : ""),where("cid", "==", courseID != "" ? courseID : ""));
-
-
-            subjectSelect.innerHTML = "";
-            const row3 = document.createElement("option");
-            row3.innerHTML = `
-        <option value="">Select Unit</option>
             
-        `;
-            subjectSelect.appendChild(row3);
-
-            var querySnapshot = getDocs(q).then(
-                querySnapshot => {
-                    querySnapshot.forEach((doc) => {
-                        // doc.data() is never undefined for query doc snapshots
-                        const data2 = doc.data();
-                        const row2 = document.createElement("option");
 
 
-                        row2.innerHTML = `
+        }
+
         
-    
-        <option value="${data2.unittName}">${data2.unitName}</option>
-            
-        `;
-                        subjectSelect.appendChild(row2);
-
-                        console.log(doc.id, " => ", doc.data());
-                    });
-                }
-            );
-
-
-        }
-
-        document.getElementById("unitSelect").onclick = function () {
-            var y = document.getElementById("unitSelect");
-            var value2 = y.options[y.selectedIndex].text;
-            unitId = value2;
-
-            const subjectSelect = document.querySelector("#chapterSelect");
-            q = query(collection(db, "chapter"), where("unitId", "==", unitId != "" ? unitId : ""),where("cid", "==", courseID != "" ? courseID : ""),where("sid", "==", subjectID != "" ? subjectID : ""));
-
-
-            subjectSelect.innerHTML = "";
-            const row3 = document.createElement("option");
-            row3.innerHTML = `
-        <option value="">Select Chapters</option>
-            
-        `;
-            subjectSelect.appendChild(row3);
-
-            var querySnapshot = getDocs(q).then(
-                querySnapshot => {
-                    querySnapshot.forEach((doc) => {
-                        // doc.data() is never undefined for query doc snapshots
-                        const data2 = doc.data();
-                        const row2 = document.createElement("option");
-
-
-                        row2.innerHTML = `
-        
-    
-        <option value="${data2.chapterName}">${data2.chapterName}</option>
-            
-        `;
-                        subjectSelect.appendChild(row2);
-
-                        console.log(doc.id, " => ", doc.data());
-                    });
-                }
-            );
-        }
-
-        document.getElementById("chapterSelect").onclick = function () {
-            var y = document.getElementById("chapterSelect");
-            var value2 = y.options[y.selectedIndex].text;
-            chapterUId = value2;
-        }
 
 
 
@@ -519,6 +439,7 @@
         var option3;
         var option4;
         var rightAns;
+        var marks;
         
          
 
@@ -540,6 +461,7 @@
             option3 = document.getElementById("option3").value;
             option4 = document.getElementById("option4").value;
             rightAns = document.getElementById("rightAns").value;
+            marks = document.getElementById("marks").value;
 
 
 
@@ -593,7 +515,7 @@
 
 
             const storage = getStorage();
-            const storageRef = sRef(storage, 'images/' + ImgName);
+            const storageRef = sRef(storage, 'TestMCQimages/' + ImgName);
 
             const uploadTask = uploadBytesResumable(storageRef, files);
 
@@ -626,7 +548,7 @@
                             console.log(Url);
 
                             // Add the Firestore document inside this block
-                            addDoc(collection(db, "ImageLink"), {
+                            addDoc(collection(db, "TestMcqImageLink"), {
                                 ImageName: filename + extension,
                                 ImageUrl: Url,
                                 ImageID: String.toString(),
@@ -702,7 +624,7 @@
 
 
             const storage = getStorage();
-            const storageRef = sRef(storage, 'questionimages/' + QuestionImgName);
+            const storageRef = sRef(storage, 'TestMcsQuestionimages/' + QuestionImgName);
 
             const uploadTask = uploadBytesResumable(storageRef, questionfiles);
 
@@ -735,7 +657,7 @@
                             console.log(questionUrl);
 
                             // Add the Firestore document inside this block
-                            addDoc(collection(db, "QuestionImageLink"), {
+                            addDoc(collection(db, "TestMcqQuestionImageLink"), {
                                 QuestionImageName: questionfilename + questionextension,
                                 QuestionImageUrl: questionUrl,
                                 QuestionImageID: String.toString(),
@@ -770,21 +692,20 @@
                 UploadProcess(currentTime);
                 questionUploadProcess(currentTime);
                 if (UploadProcess && questionUploadProcess) {
-                    addDoc(collection(db, "MCQs",), {
+                    addDoc(collection(db, "TestMCQs",), {
                         
                         option1: option1,
                         option2: option2,
                         option3: option3,
                         option4: option4,
                         rightAns: rightAns,
-                        unitId: unitId,
-                        chapterId: chapterUId,
                         sid: subjectID,
                         cid: courseID,
                         ImageName: filename + extension,
                         ImageID :currentTime.toString(),
                         QuestionImageName: questionfilename + questionextension,
                         QuestionImageID : currentTime.toString(),
+                        marks : marks,
                         
                     });
                     alert("Question Added...");
@@ -795,6 +716,7 @@
                     document.getElementById("option3").value = "";
                     document.getElementById("option4").value = "";
                     document.getElementById("rightAns").value = "";
+                    document.getElementById("marks").value = "";
                 }
             }
 

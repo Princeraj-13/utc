@@ -96,7 +96,7 @@ ul li a.active
     font-size: 1.2rem;
 }
 
-.navigation ul li:nth-child(12){
+.navigation ul li:nth-child(13){
     pointer-events: none;
     position: relative;
    padding-bottom: 40px;
@@ -1320,4 +1320,8 @@ td .rating{
     .box{
         width: 90%;
     }
+}
+
+.editor{
+    width: 50%;
 }

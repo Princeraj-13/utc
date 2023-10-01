@@ -101,6 +101,13 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="add-test-mcq.html">
+                        <span class="icon"><ion-icon name="document-outline"></ion-icon></span>
+                        <span class="title">Add Test Mcq</span>
+                    </a>
+                </li>
+
                 <li id="signOut">
                     <a  >
                         <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
@@ -343,7 +350,7 @@
 
         const querySnapshot2 = await getDocs(collection(db, "subject"));
 
-        var id = 1;
+        var id = 0;
         querySnapshot2.forEach((docs) => {
             // doc.data() is never undefined for query doc snapshots
             console.log(docs.id, " => ", docs.data());
@@ -355,7 +362,7 @@
                     <tr>
                         
                             <td>
-                                <p class="id-data" style="color: white;">${id++}</p>
+                                <p class="id-data" style="color: white;">${id}</p>
                             </td>
                             <td>
                                 <div class="info-container">
